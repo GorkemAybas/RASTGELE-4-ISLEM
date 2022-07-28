@@ -1,0 +1,145 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body{
+background-color: rgb(218, 199, 176);
+text-align: center;
+
+border: solid 5px rgb(157, 172, 190);
+}
+div#div1{
+
+
+margin-top: 400px;
+
+
+}
+#div2true1{
+  background-color: rgb(113, 189, 113); 
+
+}
+#div3false{
+  background-color: rgb(201, 89, 89);
+}
+
+
+
+  </style>
+  </head>
+  <body>
+    <div id="div1">
+
+      <span id="number1">0</span>
+      <span id="number2">*</span>
+      <span id="operator">0</span>
+
+      <span>=</span>
+      <input type="number" id="textbox" placeholder="Değer Girin:" />
+      <button id="button11" onclick="button11()"> hesapla</button>
+
+
+      
+      <div id="div2true1">0</div>
+      <div id="div3false">0</div>
+
+      <div style="clear: both" id="div4"></div>
+    </div>
+
+    <script>
+    var number1=document.getElementById("number1");
+    var  number2=document.getElementById("number2");
+    var  operator=document.getElementById("operator");
+
+
+
+    var button1=document.getElementById("button1");
+    var div4=document.getElementById("div4");
+    var div1=document.getElementById("div1");
+    var div2true1=document.getElementById("div2true1");
+    var div3false=document.getElementById("div3false");
+
+    function randomrandom(min,max){
+    var Number=Math.floor(Math.random()*(max-min))+min;
+    return Number;
+    }
+
+
+
+    function newquestion() {
+      operator2=["+","-","*","/"];
+    number2.innerHTML=operator2[randomrandom(0,4)];
+    //? çalışmassa hata burada */ 
+    number1.innerHTML=randomrandom(0,50);
+    operator.innerHTML=randomrandom(0,50);
+
+    if (number2.innerHTML=="/") {
+      while (true) {
+        operator.innerHTML=randomrandom(0,50);
+        if (number1.innerHTML%operator.innerHTML==0) {
+          break;
+        }
+      }
+    }
+    }
+      
+      window.onload=function(){
+        newquestion();
+      }
+
+      function button11(){
+        var textbox=document.getElementById("textbox").value;
+        let n1=Number(number1.innerHTML);
+        let n2=Number(operator.innerHTML);
+
+        switch(number2.innerHTML){
+          case"+": 
+          ans=Number(n1+n2);
+          console.log(ans);
+          break;
+          case"/":   
+          ans=Number(n1/n2);
+          console.log(ans);
+          break; 
+            case"-":  
+            ans=Number(n1-n2);
+            console.log(ans);
+            break;  
+            case"*":  
+              ans=Number(n1*n2);
+              console.log(ans);
+              break;
+              default:break;
+        }
+
+        console.log("burası text box",textbox);
+      // console.log(textboxEl)
+
+        //aynı textcontent hatası burda da olabilir
+        if (textbox==ans) {
+          div2true1.innerHTML=Number(div2true1.innerHTML)+1;
+
+        }
+        else {
+
+          div3false.innerHTML=Number(div3false.innerHTML)+1;
+
+         }
+    while (textbox.getElementById==true) {
+      div2true1.innerHTML=Number(div2true1.innerHTML)+1;
+    }
+    
+  
+        
+
+//true ve false booleanlarını kullanmak yerine tanımladığım divdeki değerleri kullandım
+        console.log(ans);
+        newquestion();
+//ans ile textboxu karşılaştır!!
+      }
+  </script>
+  </body>
+</html>
